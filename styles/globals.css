@@ -28,7 +28,8 @@ h1 {
 }
 .button {
   display: inline-block;
-  margin: 0.5rem;}
+  margin: 0.5rem;
+}
 h2 {
   display: block;
   width: fit-content;
@@ -60,12 +61,20 @@ p {
 }
 .submit {
   display: inline-block;
-  background-color: rgb(35, 187, 35);
+  
+  background-color: rgb(23, 206, 23);
   color: white;
   padding: 10px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
+}
+.submit:hover {
+  background-color: rgba(35, 187, 35);
+  color: white;
+}
+.submit:active {
+  background-color: rgb(16, 151, 16);
 }
 a {
   text-decoration: underline;
