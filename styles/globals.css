@@ -1,0 +1,100 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+.inline {
+  display: inline-block;
+  margin: 10px;
+}
+.dashboard-container {
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  justify-content: baseline;
+  align-items: center;
+}
+h1 {
+  display: block;
+  width: fit-content;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 10px auto;
+}
+.hidden {
+  display: none !important;
+}
+.button {
+  display: inline-block;
+  margin: 0.5rem;}
+h2 {
+  display: block;
+  width: fit-content;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 10px auto;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.add-page {
+  width: 360px;
+  padding: 2% 0 0;
+  margin: auto;
+}
+.signup-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+p {
+  display: inline-block;
+  margin: 10px;
+}
+.submit {
+  display: inline-block;
+  background-color: rgb(35, 187, 35);
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+a {
+  text-decoration: underline;
+  color: blue;
+}
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+input {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  background: #f1f1f1;
+  margin-bottom: 20px !important;
+  border: 1px solid #ccc;
+}
+textarea {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  background: #f1f1f1;
+  margin-bottom: 20px !important;
+}
+* {
+  box-sizing: border-box;
+}
