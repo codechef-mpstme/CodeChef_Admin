@@ -23,7 +23,7 @@ export default function Add()
         }
         else
         {
-            window.location.href = '/';
+            window.location.href = `${window.location.origin}/`;
         }
     }, [])
     async function handleSubmit(event)
@@ -32,16 +32,18 @@ export default function Add()
         const date1 = new Date(date);
         try
         {
-            const res = await axios.post('http://localhost:3000/api/addEvent', { "name": title, "description": description, "venue": venue, timestamp: date1 });
+            const domain = new URL(window.location.href).hostname;
+            const protocol = new URL(window.location.href).protocol;
+            const res = await axios.post(`${window.location.origin}/api/addEvent`, { "name": title, "description": description, "venue": venue, timestamp: date1 });
             if (res.status === 200)
             {
                 if (Image)
                 {
-                    const fileRes = await axios.post('http://localhost:3000/api/getDocId', { 'name': title });
+                    const fileRes = await axios.post(`${window.location.origin}/api/getDocId`, { 'name': title });
                     if (fileRes.status === 200)
                     {
                         await uploadBytes(ref(storage, `events/${fileRes.data}.png`), Image,{ contentType: 'image/png' });
-                        const response = await axios.post('http://localhost:3000/api/editEvent', {
+                        const response = await axios.post(`${window.location.origin}/api/editEvent`, {
                             'oldTitle': title,
                             'changeImage': 'true',
                             'changeFields': 'false'

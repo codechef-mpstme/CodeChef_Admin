@@ -19,7 +19,7 @@ export default function Dashboard()
     const [timestamp, setTimestamp] = useState();
     function getEvents()
     {
-        fetch("http://localhost:3000/api/getEvents")
+        fetch(`${window.location.origin}/api/getEvents`)
             .then(res => res.json())
             .then(data => setEvents(data));
     }
@@ -53,7 +53,7 @@ export default function Dashboard()
         const confirm = window.confirm("Are you sure you want to delete this event?");
         if (confirm)
         {
-            const res = await axios.post("http://localhost:3000/api/deleteEvent", { name: events[index].name });
+            const res = await axios.post(`${window.location.origin}/api/deleteEvent`, { name: events[index].name });
             if (res.status === 200)
             {
                 getEvents();
@@ -89,10 +89,12 @@ export default function Dashboard()
             {
                 try
                 {
-                    const docId = await axios.post("http://localhost:3000/api/getDocId", { name: events[index].name });
+                    const domain = new URL(window.location.href).hostname;
+                    const protocol = new URL(window.location.href).protocol;
+                    const docId = await axios.post(`${window.location.origin}/api/getDocId`, { name: events[index].name });
                     await uploadBytes(ref(storage, `events/${docId.data}.png`), image, { contentType: "image/png" });
                     const changeI = image ? "true": "false";
-                    const res = await axios.post("http://localhost:3000/api/editEvent", {
+                    const res = await axios.post(`${window.location.origin}/api/editEvent`, {
                         name: name,
                         description: description,
                         venue: venue,
